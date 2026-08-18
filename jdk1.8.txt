@@ -156,6 +156,10 @@ public static void main(String[] args) {
 }
 }
 
+--------------------------------------------
+What is OOPs concept in java
+
+Naveen Kumar---Super Champ
 ----------------------------------------------------------------------------------------------------
 Constructor
 -----------------------------
@@ -455,7 +459,7 @@ Inheritance
 ----------------------
 It is one of the oops concept
 Reuse of existing code.and we can add some more features to it.
-example :- iPhone10 to iPhone11 some new features are add to the older version.
+example :- iPhone16 to iPhone17 some new features are add to the older version.
 There are 5 types of Inheritance.
 1)single Inheritance
 2)multi-level Inheritance
@@ -5390,7 +5394,43 @@ public static void main(String[] args)throws Exception
 }
 }
 -------------------------------------------------------------------------------------------------------------------------------------
+18/08/26
+//Encapsulation 
+package Tuesday;
+public class Student 
+{
+	private int rollno;//instance variables can be accessed anywhere within the class
+	private String name,address;
+public Student(int rollno, String name, String address) 
+//local variables can be accessed within the function
+{
+		super();
+		this.rollno = rollno;
+		this.name = name;
+		this.address = address;
+	}
+@Override
+public String toString() {
+	return "Student [rollno=" + rollno + ", name=" + name + ", address=" + address + "]";
+}
+public Student() 
+{
+	System.out.println("default constructor");
+}
+}
 
+---------------------------------------------------------------------------------------
+package Tuesday;
 
-
-
+public class MainClass 
+{
+public static void main(String[] args) 
+{
+	Student obj1=new Student();
+	Student obj2=new Student(101,"sandip","Bangalore");
+	Student obj3=new Student(102,"Kiran","Banagalore");
+	System.out.println(obj2);
+	System.out.println(obj3);
+	}
+}
+------------------------------------------------------------------------------
