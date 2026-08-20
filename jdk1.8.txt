@@ -5542,6 +5542,52 @@ import java.util.Scanner;
 	    }
 	}
 ------------------------------------------------------------------------------
+example-4
+---------------------
+//wap to enter some strings and search using Linear Search	
+import java.util.Scanner;
+	public class LinearSearch
+	{
+	    public static void main(String[] args)
+	    {
+	        Scanner sc = new Scanner(System.in);
+	
+	        // Input size of the array
+	        System.out.print("Enter number of elements: ");
+	        int n = sc.nextInt();
+	
+	        String[] arr = new String[n];
+	
+	        // Input elements
+	        System.out.println("Enter " + n + " elements:");
+	        for (int i = 0; i < n; i++)
+	        {
+	            arr[i] = sc.next();
+	        }
+	
+	        // Input element to search
+	        System.out.print("Enter element to search: ");
+	        String key = sc.next();
+	
+	        // Linear search
+	        boolean found = false;
+	        for (int i = 0; i < n; i++)
+	        {
+	            if (key.equals(arr[i]))
+	            {
+	                System.out.println("Element found at index: " + i);
+	                found = true;
+	                break;
+	            }
+	        }
+	
+	        if (!found)
+	        {
+	            System.out.println("Element not found in the array.");
+	        }
+	    }
+	}
+-----------------------------------------------------------------------------------------
 
 
 
