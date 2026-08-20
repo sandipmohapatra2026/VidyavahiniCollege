@@ -5515,6 +5515,33 @@ example-2
 	    }
 	}
 -------------------------------------------------------------------------------------------------------
+example-3
+----------------------
+import java.util.Scanner;
+		public class ArrayTraversal
+	{ //https://github.com/sandipmohapatra2026/VidyavahiniCollege
+	    public static void main(String[] args)
+	    {
+	        Scanner sc = new Scanner(System.in);
+		        // Input size of the array
+	        System.out.print("Enter number of elements: ");
+	        int n = sc.nextInt();
+		        String[] arr = new String[n];
+		        // Input elements
+	        System.out.println("Enter " + n + " elements:");
+	        for (int i = 0; i < n; i++)
+	        {
+	            arr[i] = sc.next();
+	        }
+		        // Traverse and print elements
+	        System.out.println("Traversing the array:");
+	        for (int i = 0; i < n; i++)
+	        {
+	            System.out.println(arr[i]);
+	        }
+	    }
+	}
+------------------------------------------------------------------------------
 
 
 
