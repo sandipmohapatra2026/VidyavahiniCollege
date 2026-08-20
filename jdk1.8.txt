@@ -458,12 +458,12 @@ store the data and display it.
 Inheritance
 ----------------------
 It is one of the oops concept
-Reuse of existing code.and we can add some more features to it.
+Reuse of existing code. And.and we can add some more features to it.
 example :- iPhone16 to iPhone17 some new features are add to the older version.
 There are 5 types of Inheritance.
 1)single Inheritance
 2)multi-level Inheritance
-3)hyrarchal Inheritance
+3)hierarchal Inheritance
 ----------------------Java doesn't support---------------------------------
 4)multiple inheritance
 5)Hybrid inheritance(combination)
@@ -742,7 +742,7 @@ static keyword
 final keyword
 -----------------------------------------------------------------------------------------------------------------
 polymorphism:-
-Method Overloading :- compile time Polymerphism.we need one class.
+Method Overloading :- compile time Polymerphism. we need one class.
 The method name is same but the return type and parameter has different data type.
 example:-
 int sum(int a,int b);
@@ -819,7 +819,7 @@ we have to inherite it into a child class where we have to override the abstract
 Then we can create object for the child class.
 We cannot have a method without body .we have to declare it as abstract or it should be inside the interface.
 What is the use of abstract class.
-It contains some abstract methods which has to be overriden inside the child class.
+It contains some abstract methods which has to be overridden inside the child class.
 We can have a constructor in the abstract class.
 *abstract windowing toolkit(AWT)
 
@@ -894,11 +894,11 @@ class AbstractDemo extends Abstract1
 		ob.display();
 	}
 }
---------------------------------------------------------------------------
+------------------------------------------------------------------------
 Create a abstract class bank 
-having abstract methods register(),apply for loan,credit card,dedit card.
-create a child class customer .override all the methods and create object.
---------------------------------------------------------------------------------------------
+having abstract methods register(),apply for loan(), credit card(), debit card().
+create a child class customer .override all the abstract methods and create object.
+------------------------------------------------------------------------
 Interface:-
 It is similar to abstract class but it only contains abstract methods no concrete methods.we don't use the keyword abstract in this.
 We cannot create object for an interface.
@@ -908,6 +908,9 @@ By interface java performs the multiple Inheritance.
 we can declare a variable inside a interface .this is by default static(we can access it without object )
 and final(cann't be changed)
 --------------------------------------------------------------------------------------------------
+
+
+-------------------------
 progarm-19
 -----------------------
 package Wednesday;
@@ -1218,7 +1221,7 @@ System.out.println("the sum is "+sum);
 public static void main(String h[]) 
 
 public is a access specifier so that JVM can access the main method which is outside the package.
-static is used so that we can access static variables and methods inside it.and we need not create object of the main()
+static is used so that we can access static variables and methods inside it. and we need not create object of the main()
 void is the return type.
 main is the keyword for making the method as main.
 (String h[]) -- we can pass string arguments inside it.
@@ -1384,7 +1387,7 @@ throws Exception:-
 -------------------------------
 we don't require any body for throws exception .we mention it with the method.
 This is mostly used with checked exception.
-when we work with IOException,SQLException,Interrupted Exception etc.
+when we work with IOException, SQLException, Interrupted Exception etc.
 ------------------------------------------------------------------
 program-30
 -----------------------
@@ -1421,6 +1424,9 @@ public class ErrorExample
 {
 public static void main(String[] args) throws Exception
 {
+
+
+
 	Scanner ob=new Scanner(System.in);
 	System.out.println("enter your age to cast your vote");
 	int age=ob.nextInt();
@@ -5434,3 +5440,38 @@ public static void main(String[] args)
 	}
 }
 ------------------------------------------------------------------------------
+DSA
+--------------
+example-1
+----------------------------------------
+import java.util.Scanner;
+		public class ArrayTraversal
+	{
+	    public static void main(String[] args)
+	    {
+	        Scanner sc = new Scanner(System.in);
+		        // Input size of the array
+	        System.out.print("Enter number of elements: ");
+	        int n = sc.nextInt();
+		        int[] arr = new int[n];
+		        // Input elements
+	        System.out.println("Enter " + n + " elements:");
+	        for (int i = 0; i < n; i++)
+	        {
+	            arr[i] = sc.nextInt();
+	        }
+		        // Traverse and print elements
+	        System.out.println("Traversing the array:");
+	        for (int i = 0; i < n; i++)
+	        {
+	            System.out.println(arr[i]);
+	        }
+	    }
+	}
+-----------------------------------------------------------------------------------------------
+
+
+
+
+
+
