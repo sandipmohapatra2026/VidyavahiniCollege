@@ -2389,8 +2389,8 @@ Map :-It is an interface.
  In this we enter key and values pair.
 The key should not be duplicate.The value can be duplicate.
 The key and value pair is known as entry.
-Map is useful to search,update or delete elements on the basis of the key.
--------------------------------------------------------------
+Map is useful to search, update or delete elements on the basis of the key.
+-----------------------------------------------------------------------------------
 Map --HashMap,LinkedHashMap,TreeMap(sorting)
 -----------------------------------------------------------------------------------
 Example-48
@@ -2425,7 +2425,7 @@ while(itr.hasNext())
 	System.out.println(en.getKey()+ "  "+en.getValue());
 }
 ---------------------------------------------------------------------------------------------
-HashSet is converted to set because we don't the Interface Iterator in the HashMap.We have it in Set.
+HashSet is converted to set because we don't the Interface Iterator in the HashMap. We have it in Set.
 entrySet() is used to convert the Map into set.
 Map.Entry is a class contain getKey(),getValue()
 -------------------------------------------------------------------------------------------------------
@@ -2548,7 +2548,9 @@ System.out.println("****************************");
 }}
 ----------------------------------------------------------------------------------------------
 Example-50
--------------------------
+-------------------------------------------------------------------------------------------------
+create a bank program where we will enter the account no and it will display the customer details.
+---------------------------------------------------------------------------------------------
 package HashMapDemo;
 import java.util.*;
 public class Employee 
@@ -2651,7 +2653,7 @@ while(itr1.hasNext())
 System.out.println("the head is "+queue.element());//this will display the head element
 }}
 ----------------------------------------------------------------------------
-ArrayDeque :- It is a class.We can remove and add the elements from both sides.
+ArrayDeque :- It is a class. We can remove and add the elements from both sides.
 It is also called double-ended queue.
 Example-52
 ----------------------
@@ -5641,6 +5643,7 @@ Example:
 int[] numbers = new int[3];
 
 Arrays are Objects and Stored in Heap Area:
+--------------------------------------------------------------------
 In Java, arrays are objects, regardless of whether they hold primitive or non-primitive types.
 Since objects are always stored in the heap memory, arrays are also stored in the heap.
 
@@ -6045,7 +6048,7 @@ public class QuickSortExample {
     }
 }
 -----------------------------------------------------------------------------------------------
-We have 3 classes String,StringBuffer,StringBuilder
+We have 3 classes String, StringBuffer, StringBuilder
 --------------------------------------------------------------------------
 String :-Immutable(cannot be changed).
 StringBuffer:-mutable(can be changed)
@@ -6173,5 +6176,19 @@ public class HashMapExample {
         }
     }
 }
---------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+create a bank program where we will enter the account no and it will display the customer details.
+---------------------------------------------------------------------------------------------
+
+DSA Link 
+https://www.youtube.com/watch?v=4_HOnhB64Dg&t=4374s
+
+-------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
 
