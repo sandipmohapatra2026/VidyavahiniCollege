@@ -6180,10 +6180,6 @@ public class HashMapExample {
 create a bank program where we will enter the account no and it will display the customer details.
 ---------------------------------------------------------------------------------------------
 
-DSA Link 
-https://www.youtube.com/watch?v=4_HOnhB64Dg&t=4374s
-
--------------------------------------------------------------------------------------------------
 
 
 
