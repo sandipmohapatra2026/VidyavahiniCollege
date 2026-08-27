@@ -5804,7 +5804,10 @@ public class SelectionSortExample
 {
     public static void main(String[] args)
     {
-        int[] arr = {49, 74, 25, 36, 88, 18, 31};
+        int[] arr = {49, 74, 25, 36, 88, 18, 31};{18, 74, 25, 36, 88, 49, 31},{18, 74, 25, 36, 88, 49, 31},
+{18, 25, 74, 36, 88, 49, 31},{18, 25, 31, 36, 88, 49, 74},{18, 25, 31, 36, 49, 88, 74},{18, 25, 31, 36, 49, 74, 88}
+
+
 
         int n = arr.length;
 
@@ -5838,7 +5841,8 @@ public class SelectionSortExample
 }
 
 ---------------------------------------------------------------------------------------------------------
-
+Brute force approach: check all pairs
+-------------------------------------------------------------
 public class PairWithSum
 {
     public static void main(String[] args)
@@ -6180,7 +6184,9 @@ public class HashMapExample {
 create a bank program where we will enter the account no and it will display the customer details.
 ---------------------------------------------------------------------------------------------
 
-
+selection sort
+-------------------------
+1)6 is considered as the biggest element now it is compared with next elements till it founds element bigger then 6.
 
 
 
