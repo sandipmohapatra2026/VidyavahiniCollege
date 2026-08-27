@@ -5873,7 +5873,7 @@ public class PairWithSum
         }
     }
 }
-------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
 Insertion Sort is a simple comparison-based sorting algorithm used to arrange elements in ascending or descending order.
 It builds the sorted array one element at a time by inserting each element into its correct position.
 This process continues until all elements are placed in the correct order.
@@ -6188,9 +6188,150 @@ selection sort
 -------------------------
 1)6 is considered as the biggest element now it is compared with next elements till it founds element bigger then 6.
 
+------------------------------------------------------------------------------
+Linked List
+------------------------
+Example-12
+--------------------------
+class Node 
+{
+    int data;
+    Node next;
+
+    Node(int data) //constructor 
+    {
+        this.data = data;
+        this.next = null;
+    }
+}
+------------------------------
+class MyLinkedList {
+
+    Node head;
+
+    // Add element at the end
+    void insert(int data) {
+        Node newNode = new Node(data);
+
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node temp = head;
+
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+
+            temp.next = newNode;
+        }
+    }
+
+    // Display elements
+    void display() {
+        Node temp = head;
+
+        while (temp != null) {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+
+        System.out.println("null");
+    }
+
+    // Insert at beginning
+    void insertAtBeginning(int data) {
+        Node newNode = new Node(data);
+        newNode.next = head;
+        head = newNode;
+    }
+
+    // Delete first node
+    void deleteFirst() {
+        if (head == null) {
+            System.out.println("Linked List is empty");
+            return;
+        }
+
+        head = head.next;
+    }
+
+    // Search an element
+    void search(int value) {
+        Node temp = head;
+
+        while (temp != null) {
+            if (temp.data == value) {
+                System.out.println(value + " found");
+                return;
+            }
+            temp = temp.next;
+        }
+
+        System.out.println(value + " not found");
+    }
+}
+----------------------------------------------------------------
+public class Main {
+    public static void main(String[] args) {
+
+        MyLinkedList list = new MyLinkedList();
+
+        list.insert(10);
+        list.insert(20);
+        list.insert(30);
+
+        System.out.println("Original Linked List:");
+        list.display();
+
+        list.insertAtBeginning(5);
+
+        System.out.println("After inserting at beginning:");
+        list.display();
+
+        list.deleteFirst();
+
+        System.out.println("After deleting first node:");
+        list.display();
+
+        list.search(20);
+    }}
+-----------------------------------------------------------------------
+Explanation
+-----------------------------
+1)head stores a reference to the first node in the linked list.
+Initially, head is null, meaning the list is empty.
+
+2)Node newNode = new Node(data);
+Creates a new node containing the given value.
+-------------------------------------------
+If the list is empty:
+if (head == null) {
+    head = newNode;
+}
+The new node becomes the first node.
+
+If the list is not empty:
+Node temp = head;
+temp starts at the first node.
+-----------------------------------------------------
+3)while (temp.next != null) {
+    temp = temp.next;
+}
+This moves temp through the list until it reaches the last node.
+
+4)temp.next = newNode;
+The new node is attached to the end.
+
+5)temp starts at the first node.
+
+The loop continues while temp is not null:
+
+6)The loop continues while temp is not null:
+while (temp != null)
 
 
-
+7)For each node, it prints the data:
+System.out.print(temp.data + " -> ");
 
 
 
