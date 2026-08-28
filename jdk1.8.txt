@@ -6447,6 +6447,269 @@ public class DoublyLinkedList {
     }
 }
 --------------------------------------------------------------------------------------------------------------
+Stack 
+------------------------------------------------------------------------------
+import java.util.Scanner;
+
+/*The main user-defined methods are:
+push() — adds an element
+pop() — removes the top element
+peek() — displays the top element
+display() — displays all stack elements
+A stack follows the LIFO principle: Last In, First Out.
+Stack Underflow:if you want to delete data when no data found.
+Stack Overflow:if you want to add data when data is full.
+*/
+public class StackExample {
+    private int[] stack;
+    private int top;
+    private int size;
+
+    // Constructor
+    StackExample(int size) {
+        this.size = size;
+        stack = new int[size];
+        top = -1;
+    }
+
+    // Push an element onto the stack
+    void push(int value) {
+        if (top == size - 1) {
+            System.out.println("Stack Overflow");
+        } else {
+            stack[++top] = value;
+            System.out.println(value + " pushed into the stack");
+        }
+    }
+
+    // Remove and return the top element
+    int pop() {
+        if (top == -1) {
+            System.out.println("Stack Underflow");
+            return -1;
+        } else {
+            return stack[top--];
+        }
+    }
+
+    // Return the top element without removing it
+    int peek() {
+        if (top == -1) {
+            System.out.println("Stack is empty");
+            return -1;
+        } else {
+            return stack[top];
+        }
+    }
+
+    // Display stack elements
+    void display() {
+        if (top == -1) {
+            System.out.println("Stack is empty");
+        } else {
+            System.out.println("Stack elements:");
+            for (int i = top; i >= 0; i--) {
+                System.out.println(stack[i]);
+            }
+        }
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter stack size: ");
+        int size = sc.nextInt();
+
+        StackExample s = new StackExample(size);
+
+        int choice;
+
+        do {
+            System.out.println("\n1. Push");
+            System.out.println("2. Pop");
+            System.out.println("3. Peek");
+            System.out.println("4. Display");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter value: ");
+                    int value = sc.nextInt();
+                    s.push(value);
+                    break;
+
+                case 2:
+                    int removed = s.pop();
+                    if (removed != -1) {
+                        System.out.println("Popped element: " + removed);
+                    }
+                    break;
+
+                case 3:
+                    int topElement = s.peek();
+                    if (topElement != -1) {
+                        System.out.println("Top element: " + topElement);
+                    }
+                    break;
+
+                case 4:
+                    s.display();
+                    break;
+
+                case 5:
+                    System.out.println("Program ended");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice");
+            }
+        } while (choice != 5);
+
+        sc.close();
+    }
+}
+---------------------------------------------------------------------------------------------------------
+Queue
+------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+/*The user-defined methods are:
+enqueue() — inserts an element
+dequeue() — removes an element
+peek() — displays the front element
+display() — displays all queue elements
+A queue follows the FIFO principle: First In, First Out.
+Queue Underflow:Remove element when no element present
+Queue Overflow:Add element when so space is present
+*/
+public class QueueExample {
+    private int[] queue;
+    private int front;
+    private int rear;
+    private int size;
+
+    // Constructor
+    QueueExample(int size) {
+        this.size = size;
+        queue = new int[size];
+        front = -1;
+        rear = -1;
+    }
+
+    // Add an element to the queue
+    void enqueue(int value) {
+        if (rear == size - 1) {
+            System.out.println("Queue Overflow");
+        } else {
+            if (front == -1) {
+                front = 0;
+            }
+
+            queue[++rear] = value;
+            System.out.println(value + " inserted into the queue");
+        }
+    }
+
+    // Remove an element from the queue
+    int dequeue() {
+        if (front == -1 || front > rear) {
+            System.out.println("Queue Underflow");
+            return -1;
+        } else {
+            int value = queue[front++];
+
+            if (front > rear) {
+                front = -1;
+                rear = -1;
+            }
+
+            return value;
+        }
+    }
+
+    // Display the front element
+    int peek() {
+        if (front == -1 || front > rear) {
+            System.out.println("Queue is empty");
+            return -1;
+        } else {
+            return queue[front];
+        }
+    }
+
+    // Display all queue elements
+    void display() {
+        if (front == -1 || front > rear) {
+            System.out.println("Queue is empty");
+        } else {
+            System.out.println("Queue elements:");
+            for (int i = front; i <= rear; i++) {
+                System.out.println(queue[i]);
+            }
+        }
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter queue size: ");
+        int size = sc.nextInt();
+
+        QueueExample q = new QueueExample(size);
+
+        int choice;
+
+        do {
+            System.out.println("\n1. Enqueue");
+            System.out.println("2. Dequeue");
+            System.out.println("3. Peek");
+            System.out.println("4. Display");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter value: ");
+                    int value = sc.nextInt();
+                    q.enqueue(value);
+                    break;
+
+                case 2:
+                    int removed = q.dequeue();
+                    if (removed != -1) {
+                        System.out.println("Deleted element: " + removed);
+                    }
+                    break;
+
+                case 3:
+                    int frontElement = q.peek();
+                    if (frontElement != -1) {
+                        System.out.println("Front element: " + frontElement);
+                    }
+                    break;
+
+                case 4:
+                    q.display();
+                    break;
+
+                case 5:
+                    System.out.println("Program ended");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice");
+            }
+        } while (choice != 5);
+
+        sc.close();
+    }
+}
+------------------------------------------------------------------------------------------------------
 
 
 
