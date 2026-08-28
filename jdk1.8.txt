@@ -6213,7 +6213,8 @@ class MyLinkedList {
     void insert(int data) {
         Node newNode = new Node(data);
 
-        if (head == null) {
+        if (head == null)
+ {
             head = newNode;
         } else {
             Node temp = head;
@@ -6332,6 +6333,40 @@ while (temp != null)
 
 7)For each node, it prints the data:
 System.out.print(temp.data + " -> ");
+
+--------------------------------------------------------------------------
+https://github.com/sandipmohapatra2026/VidyavahiniCollege
+
+student details--constructor
+------------------------------------------------------------------------------
+/*Recursion means calling a function within the function 
+factorial(5) = 5 × factorial(4)
+= 5 × 4 × 3 × 2 × 1 = 120*/
+public class Factorial {
+    static long factorial(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException("Factorial is not defined for negative numbers");
+        }
+        // Base case
+        if (n == 0 || n == 1) {
+            return 1;
+        }
+        // Recursive case
+        return n * factorial(n - 1);
+    }
+    public static void main(String[] args) {
+        int number = 5;
+        System.out.println(number + "! = " + factorial(number));
+    }
+}
+-----------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
 
 
 
