@@ -6885,7 +6885,19 @@ Can start traversal from any node.
 No special end node containing null.
 Useful for playlists, browser history, round-robin scheduling, and circular queues.
 ----------------------------------------------------------------------------------------------------------------
+second.jsp?Full+Name=Sandip+Mohapatra&Email+=sandipmohapatra123%40gmail.com&Phone+Number=09777237288
 
+second.jsp
+------------------
+<% String a=request.getParameter("Full Name");
+ String b=request.getParameter("Email");
+ String c=request.getParameter("Phone Number");
+%>
+
+<%out.println("The name is "+a);
+out.println("The Email is "+b);
+out.println("The Phone number is "+c);%>
+---------------------------------------------------------------------------------
 
 
 
