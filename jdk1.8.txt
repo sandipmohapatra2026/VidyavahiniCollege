@@ -6446,7 +6446,7 @@ public class DoublyLinkedList {
         list.displayBackward();
     }
 }
---------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 Stack 
 ------------------------------------------------------------------------------
 import java.util.Scanner;
@@ -6457,8 +6457,8 @@ pop() — removes the top element
 peek() — displays the top element
 display() — displays all stack elements
 A stack follows the LIFO principle: Last In, First Out.
-Stack Underflow:if you want to delete data when no data found.
-Stack Overflow:if you want to add data when data is full.
+Stack Underflow: if you want to delete data when no data found.
+Stack Overflow: if you want to add data when stack is full.
 */
 public class StackExample {
     private int[] stack;
@@ -6582,8 +6582,8 @@ dequeue() — removes an element
 peek() — displays the front element
 display() — displays all queue elements
 A queue follows the FIFO principle: First In, First Out.
-Queue Underflow:Remove element when no element present
-Queue Overflow:Add element when so space is present
+Queue Underflow: Remove element when no element present
+Queue Overflow: Add element when so space is present
 */
 public class QueueExample {
     private int[] queue;
@@ -6710,6 +6710,181 @@ public class QueueExample {
     }
 }
 ------------------------------------------------------------------------------------------------------
+circular Linked List
+----------------------------------------------
+/*A doubly circular linked list is a linked list where:
+Each node has prev and next references.
+The last node points to the first node.
+The first node points back to the last node.
+head.prev        // points to the last node
+last.next        // points to head
+head.prev = tail
+tail.next = head
+*/
+public class DoublyCircularLinkedList<T> {
+
+    private static class Node<T> {
+        T data;
+        Node<T> prev;
+        Node<T> next;
+
+        Node(T data) {
+            this.data = data;
+        }
+    }
+
+    private Node<T> head;
+    private int size;
+
+    public boolean isEmpty() {
+        return head == null;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public void addFirst(T data) {
+        Node<T> newNode = new Node<>(data);
+
+        if (head == null) {
+            head = newNode;
+            head.next = head;
+            head.prev = head;
+        } else {
+            Node<T> tail = head.prev;
+
+            newNode.next = head;
+            newNode.prev = tail;
+
+            tail.next = newNode;
+            head.prev = newNode;
+
+            head = newNode;
+        }
+
+        size++;
+    }
+
+    public void addLast(T data) {
+        Node<T> newNode = new Node<>(data);
+
+        if (head == null) {
+            head = newNode;
+            head.next = head;
+            head.prev = head;
+        } else {
+            Node<T> tail = head.prev;
+
+            newNode.next = head;
+            newNode.prev = tail;
+
+            tail.next = newNode;
+            head.prev = newNode;
+        }
+
+        size++;
+    }
+
+    public void removeFirst() {
+        if (head == null) {
+            return;
+        }
+
+        if (head.next == head) {
+            head = null;
+        } else {
+            Node<T> tail = head.prev;
+            head = head.next;
+
+            head.prev = tail;
+            tail.next = head;
+        }
+
+        size--;
+    }
+
+    public void removeLast() {
+        if (head == null) {
+            return;
+        }
+
+        if (head.next == head) {
+            head = null;
+        } else {
+            Node<T> tail = head.prev;
+            Node<T> newTail = tail.prev;
+
+            newTail.next = head;
+            head.prev = newTail;
+        }
+
+        size--;
+    }
+
+    public void displayForward() {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+
+        Node<T> current = head;
+
+        do {
+            System.out.print(current.data + " ");
+            current = current.next;
+        } while (current != head);
+
+        System.out.println();
+    }
+
+    public void displayBackward() {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+
+        Node<T> tail = head.prev;
+        Node<T> current = tail;
+
+        do {
+            System.out.print(current.data + " ");
+            current = current.prev;
+        } while (current != tail);
+
+        System.out.println();
+    }
+
+    public static void main(String[] args) 
+    {
+        DoublyCircularLinkedList<Integer> list = new DoublyCircularLinkedList<>();
+
+        list.addLast(10);
+        list.addLast(20);
+        list.addLast(30);
+        list.addFirst(5);
+
+        System.out.println("Forward:");
+        list.displayForward();     // 5 10 20 30
+
+        System.out.println("Backward:");
+        list.displayBackward();    // 30 20 10 5
+
+        list.removeFirst();
+        list.removeLast();
+
+        System.out.println("After removals:");
+        list.displayForward();     // 10 20
+    }
+}
+-----------------------------------------------------------------------------------------------
+Advantages
+Can move forward and backward.
+Efficient insertion and deletion when the target node is known.
+Can start traversal from any node.
+No special end node containing null.
+Useful for playlists, browser history, round-robin scheduling, and circular queues.
+----------------------------------------------------------------------------------------------------------------
 
 
 
