@@ -6923,8 +6923,173 @@ catch(Exception ae)
 -----------------------------------------------------------------------------------------------------
 create table emp (fullname varchar(30),email varchar(50),phonenumber varchar(12),name varchar(100));
 
+-------------------------------------------------------------------------
+Tree
+---------------
+node
+root
+edge 
+parent
+child
+leaf
+depth
+height
+subtree
+--------------------------------
+BinarySearchTree.java
+--------------------------------------
+/*Binary Search Tree (BST) in Java
+A Binary Search Tree (BST) is a binary tree where:
+All values in the left subtree are smaller than the root.
+All values in the right subtree are greater than the root.
+Each node can have at most two children.
+        50
+       /    \
+     30    70
+    / \         / \
+   20 40  60 80
+   
+   For node 50:
 
+Left side → 30, 20, 40 (smaller than 50)
+Right side → 70, 60, 80 (greater than 50)
 
+*/
+
+package Treeexample2;
+class Node {
+    int data;
+    Node left, right;
+
+    Node(int data) {
+        this.data = data;
+        left = right = null;
+    }
+}
+
+public class BinarySearchTree {
+
+    Node root;
+
+    // INSERT
+    Node insert(Node root, int data) {
+
+        // If tree is empty
+        if (root == null) {
+            return new Node(data);
+        }
+
+        // Insert in left subtree
+        if (data < root.data) {
+            root.left = insert(root.left, data);
+        }
+
+        // Insert in right subtree
+        else if (data > root.data) {
+            root.right = insert(root.right, data);
+        }
+
+        return root;
+    }
+
+    // DELETE
+    Node delete(Node root, int data) {
+
+        if (root == null) {
+            return null;
+        }
+
+        // Find the node
+        if (data < root.data) {
+            root.left = delete(root.left, data);
+        } 
+        else if (data > root.data) {
+            root.right = delete(root.right, data);
+        } 
+        else {
+
+            // Case 1: No child
+            if (root.left == null && root.right == null) {
+                return null;
+            }
+
+            // Case 2: One right child
+            if (root.left == null) {
+                return root.right;
+            }
+
+            // Case 2: One left child
+            if (root.right == null) {
+                return root.left;
+            }
+
+            // Case 3: Two children
+            // Find the smallest value in right subtree
+            Node successor = findMin(root.right);
+
+            // Replace current node data
+            root.data = successor.data;
+
+            // Delete the successor
+            root.right = delete(root.right, successor.data);
+        }
+
+        return root;
+    }
+
+    // Find minimum value
+    Node findMin(Node root) {
+
+        while (root.left != null) {
+            root = root.left;
+        }
+
+        return root;
+    }
+
+    // INORDER TRAVERSAL
+    void inorder(Node root) {
+
+        if (root != null) {
+            inorder(root.left);
+            System.out.print(root.data + " ");
+            inorder(root.right);
+        }
+    }
+
+    public static void main(String[] args) {
+
+        BinarySearchTree tree = new BinarySearchTree();
+
+        // Insert elements
+        int[] values = {50, 30, 70, 20, 40, 60, 80};
+
+        for (int value : values) {
+            tree.root = tree.insert(tree.root, value);
+        }
+
+        System.out.println("BST after insertion:");
+        tree.inorder(tree.root);
+
+        // Delete a node
+        tree.root = tree.delete(tree.root, 20);
+
+        System.out.println("\n\nBST after deleting 20:");
+        tree.inorder(tree.root);
+
+        // Delete another node
+        tree.root = tree.delete(tree.root, 30);
+
+        System.out.println("\n\nBST after deleting 30:");
+        tree.inorder(tree.root);
+
+        // Delete node with two children
+        tree.root = tree.delete(tree.root, 50);
+
+        System.out.println("\n\nBST after deleting 50:");
+        tree.inorder(tree.root);
+    }
+}
 
 
 
