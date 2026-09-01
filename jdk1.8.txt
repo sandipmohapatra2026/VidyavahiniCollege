@@ -6887,17 +6887,41 @@ Useful for playlists, browser history, round-robin scheduling, and circular queu
 ----------------------------------------------------------------------------------------------------------------
 second.jsp?Full+Name=Sandip+Mohapatra&Email+=sandipmohapatra123%40gmail.com&Phone+Number=09777237288
 
-second.jsp
-------------------
+<%@page import="java.sql.*" %>
 <% String a=request.getParameter("Full Name");
  String b=request.getParameter("Email");
  String c=request.getParameter("Phone Number");
+ String d=request.getParameter("Name");
 %>
 
 <%out.println("The name is "+a);
 out.println("The Email is "+b);
-out.println("The Phone number is "+c);%>
----------------------------------------------------------------------------------
+out.println("The Phone number is "+c);
+out.println("The message is "+d);
+%>
+
+<%
+try
+{
+	Class.forName("com.mysql.cj.jdbc.Driver");
+	Connection con=DriverManager.getConnection
+			("jdbc:mysql://localhost:3306/saptagiri","root","1234");
+	PreparedStatement st=con.prepareStatement("insert into emp values(?,?,?,?)");
+	st.setString(1,a);
+	st.setString(2,b);
+	st.setString(3,c);
+	st.setString(4,d);
+	st.execute();
+	out.println("row inserted");
+}
+catch(Exception ae)
+{
+	ae.printStackTrace();
+}
+%>
+
+-----------------------------------------------------------------------------------------------------
+create table emp (fullname varchar(30),email varchar(50),phonenumber varchar(12),name varchar(100));
 
 
 
