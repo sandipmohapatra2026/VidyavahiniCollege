@@ -6935,7 +6935,7 @@ leaf
 depth
 height
 subtree
---------------------------------
+--------------------------------------
 BinarySearchTree.java
 --------------------------------------
 /*Binary Search Tree (BST) in Java
