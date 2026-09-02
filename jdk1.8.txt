@@ -7182,5 +7182,115 @@ public class BST {
 }
 
 --------------------------------------------------------------------------------------------------
+/*Preorder traversal visits nodes in this order:
+Root → Left → Right
+Recursive Java implementation
+--------------------------------------------------------------
+Preorder: Root → Left → Right
+Inorder: Left → Root → Right
+Postorder: Left → Right → Root
+*/
 
+package Treeexample3;
+class TreeNode {
+    int value;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int value) {
+        this.value = value;
+    }
+}
+
+public class PreorderTraversal {
+
+    static void preorder(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+
+        System.out.print(root.value + " "); // Root
+        preorder(root.left);                // Left
+        preorder(root.right);               // Right
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+
+        preorder(root);
+    }
+}
+------------------------------------------------------------------------------------------------------------
+/*Postorder Traversal in Java
+Postorder traversal is a way of visiting nodes in a Binary Tree.
+The order is:
+Left → Right → Root
+ For the tree:
+
+        1
+       / \
+      2   3
+     / \
+    4   5
+
+We start at 1:
+
+Go to left → 2
+Go to left → 4
+4 has no children → print 4
+Go right → 5 → print 5
+Now print 2
+Go right of 1 → 3 → print 3
+Finally print 1*/
+
+package Treeexample4;
+class Node {
+    int data;
+    Node left;
+    Node right;
+
+    Node(int data) {
+        this.data = data;
+        left = null;
+        right = null;
+    }
+}
+
+public class PostOrder {
+
+    // Postorder: Left -> Right -> Root
+    static void postorder(Node root) {
+
+        if (root == null) {
+            return;
+        }
+
+        // Visit left subtree
+        postorder(root.left);
+
+        // Visit right subtree
+        postorder(root.right);
+
+        // Visit root
+        System.out.print(root.data + " ");
+    }
+
+    public static void main(String[] args) {
+
+        Node root = new Node(1);
+
+        root.left = new Node(2);
+        root.right = new Node(3);
+
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+
+        postorder(root);
+    }
+}
+----------------------------------------------------------------------------------------------
 
